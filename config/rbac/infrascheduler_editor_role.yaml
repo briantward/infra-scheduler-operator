@@ -1,0 +1,24 @@
+# permissions for end users to edit infraschedulers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: infrascheduler-editor-role
+rules:
+- apiGroups:
+  - bward.dev.bward.dev
+  resources:
+  - infraschedulers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - bward.dev.bward.dev
+  resources:
+  - infraschedulers/status
+  verbs:
+  - get

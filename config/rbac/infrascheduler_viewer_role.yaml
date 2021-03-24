@@ -1,0 +1,20 @@
+# permissions for end users to view infraschedulers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: infrascheduler-viewer-role
+rules:
+- apiGroups:
+  - bward.dev.bward.dev
+  resources:
+  - infraschedulers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - bward.dev.bward.dev
+  resources:
+  - infraschedulers/status
+  verbs:
+  - get

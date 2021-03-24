@@ -1,0 +1,7 @@
+apiVersion: bward.dev.bward.dev/v1alpha1
+kind: InfraScheduler
+metadata:
+  name: infrascheduler-sample
+spec:
+  # Add fields here
+  foo: bar

@@ -1,0 +1,20 @@
+# permissions for end users to view machinesetmanageds.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: machinesetmanaged-viewer-role
+rules:
+- apiGroups:
+  - bward.dev.bward.dev
+  resources:
+  - machinesetmanageds
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - bward.dev.bward.dev
+  resources:
+  - machinesetmanageds/status
+  verbs:
+  - get
