@@ -20,16 +20,14 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
-// NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
-
 // InfraSchedulerSpec defines the desired state of InfraScheduler
 type InfraSchedulerSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of InfraScheduler. Edit infrascheduler_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Method  string `json:"method,omitempty"`
+	Managed bool   `json:"managed,omitempty"`
+	// TODO either MachineSetManaged or Nodes must be populated but not both
+	//    MachineSetManaged MachinSetManagedSpec `json:"machineSetManage,omitempty"`
+	Nodes   string `json:"nodes,omitempty"`
+	Isolate bool   `json:"isolate,omitempty"`
 }
 
 // InfraSchedulerStatus defines the observed state of InfraScheduler

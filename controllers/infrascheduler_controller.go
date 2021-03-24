@@ -61,3 +61,43 @@ func (r *InfraSchedulerReconciler) SetupWithManager(mgr ctrl.Manager) error {
 		For(&bwarddevv1alpha1.InfraScheduler{}).
 		Complete(r)
 }
+
+func createInfraPool() {
+	// apply default manifest for infra MCP
+}
+
+func reconcileInfraPool() {
+	// verify if Infra Pool exists, reconcile
+}
+
+func copyMachineSets() {
+	// (default random select all AZs with replica of one or more, up to three nodes)
+}
+
+func modifyMachineSets() {
+	// (adjust machine profile type for cloud spec?)
+}
+
+func createDefinedMachineSets() {
+	// allow management of custom defined MachineSets
+}
+
+func assignInfraNodeLabel() {
+	// for non MachineSet management
+}
+
+func removeWorkerNodeLabel() {
+	// for both MachineSet management and non MachineSet management
+}
+
+func setDefaultNodeSelectorOnScheduler() {
+	// update the defaultNodeSelector on the default Scheduler
+}
+
+func setWorkloadNodeSelector() {
+	// update the nodeSelector on each infra workload
+}
+
+func setWorkloadTolerations() {
+	// update the tolerations on each infra workload
+}
