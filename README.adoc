@@ -1,0 +1,58 @@
+
+== Infra Scheduler Operator
+
+The purpose of this operator is to segregate OpenShift infrastructure workloads from normal tenant workloads.
+
+The intention is to automate the structures around KCS https://access.redhat.com/solutions/5034771[Infrastructure Nodes in OpenShift 4]
+
+Scratch notes
+
+----
+createInfraPool
+validateInfraPool
+deleteInfraPool
+
+Managed by MachineSets?
+ -> Yes, createInfraMachineSets with infra label
+   Pick default AZ MachineSet definitions to copy: which AZs? (default all AZs with replica of one or more, up to three nodes)
+   How many of each AZ ?
+   Compute Profile ?
+   Apply by T&T ?
+     -> add Taints to MachineSets
+   Scale up N replicas of N MachineSets in each AZ
+   remove worker label on each node 
+   validate end state - reconcile on this.
+ -> No, user pick nodes, 
+    assignNodeLabel infra, 
+    removeNodeLabel worker, 
+    Apply by T&T?
+      -> setNodeTaint
+ 
+Managed by defaultnodeselector?
+  -> setDefaultNodeSelectorOnScheduler
+
+for each infra workload:
+ -> setWorkloadNodeSelector
+ Apply by T&T ? 
+ -> setWorkloadToleration
+
+
+Managed: true/false
+Method: taints,defaultnodeselector
+MachineSetDefs:
+  AvailabilityZones: by cloud provider; list
+  Replicas:
+Nodes: list of nodes
+(either Nodes or MachineSetDefs to be defined)
+Isolate: true/false, determine whether to remove worker label
+
+workloads:
+- IngressController
+- Monitoring
+- Logging
+- Registry
+- ServiceMesh components
+- Operators
+
+also create a controller to modify inflight pod specs of any known infra workloads to apply at this particular point (prevents need for changing by using CRDs for each operator CRD)
+----
