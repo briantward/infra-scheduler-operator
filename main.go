@@ -31,7 +31,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	bwarddevv1alpha1 "github.com/briantward/infra-scheduler-operator/api/v1alpha1"
+	infraschedulerv1alpha1 "github.com/briantward/infra-scheduler-operator/api/v1alpha1"
 	"github.com/briantward/infra-scheduler-operator/controllers"
 	//+kubebuilder:scaffold:imports
 )
@@ -44,7 +44,7 @@ var (
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
-	utilruntime.Must(bwarddevv1alpha1.AddToScheme(scheme))
+	utilruntime.Must(infraschedulerv1alpha1.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
 }
 

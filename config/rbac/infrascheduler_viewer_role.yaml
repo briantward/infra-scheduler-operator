@@ -5,7 +5,7 @@ metadata:
   name: infrascheduler-viewer-role
 rules:
 - apiGroups:
-  - bward.dev.bward.dev
+  - infrascheduler.bward.dev
   resources:
   - infraschedulers
   verbs:
@@ -13,7 +13,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - bward.dev.bward.dev
+  - infrascheduler.bward.dev
   resources:
   - infraschedulers/status
   verbs:

@@ -2,8 +2,8 @@
 # since it depends on service name and namespace that are out of this kustomize package.
 # It should be run by config/default
 resources:
-- bases/bward.dev.bward.dev_infraschedulers.yaml
-- bases/bward.dev.bward.dev_machinesetmanageds.yaml
+- bases/infrascheduler.bward.dev_infraschedulers.yaml
+- bases/infrascheduler.bward.dev_machinesetmanageds.yaml
 #+kubebuilder:scaffold:crdkustomizeresource
 
 patchesStrategicMerge:

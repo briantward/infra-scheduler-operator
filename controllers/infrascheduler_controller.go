@@ -24,7 +24,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	bwarddevv1alpha1 "github.com/briantward/infra-scheduler-operator/api/v1alpha1"
+	infraschedulerv1alpha1 "github.com/briantward/infra-scheduler-operator/api/v1alpha1"
 )
 
 // InfraSchedulerReconciler reconciles a InfraScheduler object
@@ -34,9 +34,9 @@ type InfraSchedulerReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=bward.dev.bward.dev,resources=infraschedulers,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=bward.dev.bward.dev,resources=infraschedulers/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=bward.dev.bward.dev,resources=infraschedulers/finalizers,verbs=update
+//+kubebuilder:rbac:groups=infrascheduler.bward.dev,resources=infraschedulers,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=infrascheduler.bward.dev,resources=infraschedulers/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=infrascheduler.bward.dev,resources=infraschedulers/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -58,7 +58,7 @@ func (r *InfraSchedulerReconciler) Reconcile(ctx context.Context, req ctrl.Reque
 // SetupWithManager sets up the controller with the Manager.
 func (r *InfraSchedulerReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&bwarddevv1alpha1.InfraScheduler{}).
+		For(&infraschedulerv1alpha1.InfraScheduler{}).
 		Complete(r)
 }
 

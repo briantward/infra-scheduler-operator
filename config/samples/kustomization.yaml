@@ -1,5 +1,5 @@
 ## Append samples you want in your CSV to this file as resources ##
 resources:
-- bward.dev_v1alpha1_infrascheduler.yaml
-- bward.dev_v1alpha1_machinesetmanaged.yaml
+- infrascheduler_v1alpha1_infrascheduler.yaml
+- infrascheduler_v1alpha1_machinesetmanaged.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples

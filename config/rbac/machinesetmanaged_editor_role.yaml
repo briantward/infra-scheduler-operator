@@ -5,7 +5,7 @@ metadata:
   name: machinesetmanaged-editor-role
 rules:
 - apiGroups:
-  - bward.dev.bward.dev
+  - infrascheduler.bward.dev
   resources:
   - machinesetmanageds
   verbs:
@@ -17,7 +17,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - bward.dev.bward.dev
+  - infrascheduler.bward.dev
   resources:
   - machinesetmanageds/status
   verbs:
